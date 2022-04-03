@@ -2,8 +2,7 @@ package ru.job4j.converter;
 
 public class Converter {
     public static float rubleToEuro(float value) {
-        return value / 95;
-    }
+        return value / 95; }
 
     public static float euroToRuble(float value) {
         return value * 95;
@@ -26,17 +25,42 @@ public class Converter {
     }
 
     public static void main(String[] args) {
-        float euro = Converter.rubleToEuro(190);
-        float euroToRub = Converter.euroToRuble(50);
-        float dollar = Converter.rubleToDollar(200);
-        float dollarToRub = Converter.dollarToRuble(500);
-        float eurToUsd = Converter.euroToDollar(35);
-        float usdToEuro = Converter.dollarToEuro(10);
-        System.out.println("190 rubles are " + euro + " euro.");
-        System.out.println("50 euro are " + euroToRub + " rubles");
-        System.out.println("200 rubles are " + dollar + " dollars");
-        System.out.println("500 dollars are " + dollarToRub + " rubles");
-        System.out.println("35 euro are " + eurToUsd + " dollars");
-        System.out.println("10 dollars are " + usdToEuro + " euro");
+
+        float in = 190;
+        float expected = 2;
+        float out = Converter.rubleToEuro(in);
+        boolean passed = expected == out;
+        System.out.println("190 rubles are 2. Test result : " + passed);
+
+        in = 5;
+        expected = 475;
+        out = Converter.euroToRuble(in);
+        passed = expected == out;
+        System.out.println("5 euro are 475. Test result : " + passed);
+
+        in = 860;
+        expected = 10;
+        out = Converter.rubleToDollar(in);
+        passed = expected == out;
+        System.out.println("860 rubles are 10. Test result : " + passed);
+
+        in = 25;
+        expected = 2150;
+        out = Converter.dollarToRuble(in);
+        passed = expected == out;
+        System.out.println("25 dollars are 2150. Test result : " + passed);
+
+        in = 13;
+        expected = 14.3f;
+        out = Converter.euroToDollar(in);
+        passed = expected == out;
+        System.out.println("13 euro are 14.30. Test result : " + passed);
+
+        in = 55;
+        expected = 49.5f;
+        out = Converter.dollarToEuro(in);
+        passed = expected == out;
+        System.out.println("55 dollars are 49.50. Test result : " + passed);
+
     }
 }
